@@ -12,7 +12,7 @@ Cell::Cell(unsigned int input)
 {
 	if (input > 9)
 	{
-		invalid_argument;
+		throw invalid_argument("Chiffre de la cellule superieur a 10");
 	}
 }
 

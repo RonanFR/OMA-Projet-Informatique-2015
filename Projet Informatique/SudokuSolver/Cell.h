@@ -1,6 +1,12 @@
 # pragma once
 
-class Cell{
+#ifdef SUDOKUSOLVER_EXPORTS
+#define SUDOKUSOLVER_API __declspec(dllexport)
+#else
+#define SUDOKUSOLVER_API __declspec(dllimport)
+#endif
+
+class SUDOKUSOLVER_API Cell{
 public:
 	Cell();
 	Cell(unsigned int value);
