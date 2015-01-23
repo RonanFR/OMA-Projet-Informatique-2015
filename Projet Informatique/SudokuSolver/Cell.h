@@ -9,7 +9,11 @@
 class SUDOKUSOLVER_API Cell{
 public:
 	Cell();
-	Cell(unsigned int value);
+	Cell(unsigned char value);
+	bool isEmpty();
+	Cell & operator =(unsigned char iValue);
+	operator unsigned char() const;
+	bool operator ==(unsigned char iValue) const;
 private:
-	unsigned int value; // 0 si la cellule est vide, chiffre entre 1 et 9 si la cellule est valuee
+	char value;
 };
