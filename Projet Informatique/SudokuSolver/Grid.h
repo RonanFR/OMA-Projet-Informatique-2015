@@ -1,14 +1,14 @@
-#pragma once
-#include "Region.h"
-#include <list>
+# pragma once
+# include "Region.h"
+# include <list>
 
 using namespace std;
 
-#ifdef SUDOKUSOLVER_EXPORTS
-#define SUDOKUSOLVER_API __declspec(dllexport)
-#else
-#define SUDOKUSOLVER_API __declspec(dllimport)
-#endif
+# ifdef SUDOKUSOLVER_EXPORTS
+# define SUDOKUSOLVER_API __declspec(dllexport)
+# else
+# define SUDOKUSOLVER_API __declspec(dllimport)
+# endif
 
 class SUDOKUSOLVER_API Grid
 {

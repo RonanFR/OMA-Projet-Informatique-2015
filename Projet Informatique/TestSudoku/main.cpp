@@ -1,6 +1,6 @@
 # include "Cell.h"
-#include "Grid.h"
-#include<iostream>
+# include "Grid.h"
+# include <iostream>
 # include <stdexcept>
 
 
@@ -9,15 +9,16 @@ using namespace std;
 
 int main(){
 
-
-	/*try{
+	// Test 1
+	try{
 		Cell cell1(9);
-		}
-		catch (invalid_argument& ia)
-		{
+	}
+	catch (invalid_argument& ia)
+	{
 		cerr << ia.what() << endl;
-		}
-		*/
+	}
+
+	// Test 2
 	list<Region> regions1;
 	Region region1("482-9--85-");
 
@@ -26,6 +27,8 @@ int main(){
 		regions1.push_back(region1);
 
 	}
+
+	// Test 3
 	try {
 		Grid Grid(regions1);
 	}

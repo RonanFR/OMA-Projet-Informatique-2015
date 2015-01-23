@@ -14,7 +14,7 @@ public:
 	Cell & getCell1();
 	Cell & getCell2();
 	Cell & getCell3();
-	
+
 private:
 	Cell & cell1;
 	Cell & cell2;

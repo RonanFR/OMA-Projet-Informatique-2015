@@ -1,10 +1,10 @@
 # pragma once
 
-#ifdef SUDOKUSOLVER_EXPORTS
-#define SUDOKUSOLVER_API __declspec(dllexport)
-#else
-#define SUDOKUSOLVER_API __declspec(dllimport)
-#endif
+# ifdef SUDOKUSOLVER_EXPORTS
+# define SUDOKUSOLVER_API __declspec(dllexport)
+# else
+# define SUDOKUSOLVER_API __declspec(dllimport)
+# endif
 
 class SUDOKUSOLVER_API Cell{
 public:

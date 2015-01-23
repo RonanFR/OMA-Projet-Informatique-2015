@@ -81,11 +81,13 @@
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Region.h" />
+    <ClInclude Include="TripleHolder.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Region.cpp" />
+    <ClCompile Include="TripleHolder.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

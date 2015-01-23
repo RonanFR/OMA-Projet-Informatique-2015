@@ -1,9 +1,8 @@
-#include "TripleHolder.h"
+# include "TripleHolder.h"
 
 TripleHoder::TripleHoder(Cell & cell1, Cell & cell2, Cell & cell3)
 	:cell1(cell1), cell2(cell2), cell3(cell3)
 {
-
 }
 
 Cell & TripleHoder::getCell1()
