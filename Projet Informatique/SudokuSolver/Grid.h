@@ -1,5 +1,5 @@
 # pragma once
-# include "Region.h"
+# include "RegionHolder.h"
 # include <list>
 
 using namespace std;
@@ -14,6 +14,16 @@ class SUDOKUSOLVER_API Grid
 {
 public:
 	Grid(list<Region> regions);
+
+	RegionHolder & getN();
+	RegionHolder & getS();
+	RegionHolder & getE();
+	RegionHolder & getO();
+	RegionHolder & getNE();
+	RegionHolder & getNO();
+	RegionHolder & getSE();
+	RegionHolder & getSO();
+	RegionHolder & getC();
 
 private:
 	Region N;
