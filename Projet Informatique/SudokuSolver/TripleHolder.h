@@ -7,15 +7,15 @@
 #define SUDOKUSOLVER_API __declspec(dllimport)
 #endif
 
-class SUDOKUSOLVER_API TripleHoder
+class SUDOKUSOLVER_API TripleHolder
 {
 public:
-	TripleHoder(Cell & cell1, Cell & cell2, Cell & cell3);
+	TripleHolder(Cell & cell1, Cell & cell2, Cell & cell3);
 	Cell & getCell1();
 	Cell & getCell2();
 	Cell & getCell3();
 
-private:
+protected:
 	Cell & cell1;
 	Cell & cell2;
 	Cell & cell3;
