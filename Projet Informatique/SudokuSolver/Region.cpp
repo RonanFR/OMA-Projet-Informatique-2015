@@ -34,3 +34,48 @@ bool Region::isFull()
 		O.isEmpty() || C.isEmpty() || E.isEmpty() ||
 		SO.isEmpty() || S.isEmpty() || SE.isEmpty());
 }
+
+Cell & Region::getN()
+{
+	return N;
+}
+
+Cell & Region::getS()
+{
+	return S;
+}
+
+Cell & Region::getE()
+{
+	return E;
+}
+
+Cell & Region::getO()
+{
+	return O;
+}
+
+Cell & Region::getC()
+{
+	return C;
+}
+
+Cell & Region::getNE()
+{
+	return NE;
+}
+
+Cell & Region::getNO()
+{
+	return NO;
+}
+
+Cell & Region::getSE()
+{
+	return SE;
+}
+
+Cell & Region::getSO()
+{
+	return SO;
+}

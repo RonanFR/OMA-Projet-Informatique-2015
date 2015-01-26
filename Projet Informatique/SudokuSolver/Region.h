@@ -16,7 +16,15 @@ public:
 	Region();
 	Region(string chaine);
 	bool isFull();
-
+	Cell & getN();
+	Cell & getS();
+	Cell & getE();
+	Cell & getO();
+	Cell & getNO();
+	Cell & getNE();
+	Cell & getSO();
+	Cell & getSE();
+	Cell & getC();
 private:
 	Cell N;
 	Cell S;
