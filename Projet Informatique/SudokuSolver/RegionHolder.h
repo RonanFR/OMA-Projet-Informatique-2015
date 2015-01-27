@@ -12,25 +12,25 @@
 class SUDOKUSOLVER_API RegionHolder
 {
 public:
-	RegionHolder(Region & region);
+	RegionHolder(Region const & region);
 
-	Cell & getN();
-	Cell & getS();
-	Cell & getE();
-	Cell & getO();
-	Cell & getNO();
-	Cell & getNE();
-	Cell & getSO();
-	Cell & getSE();
-	Cell & getC();
+	Cell & getN() const ;
+	Cell & getS() const;
+	Cell & getE()const;
+	Cell & getO()const;
+	Cell & getNO()const;
+	Cell & getNE()const;
+	Cell & getSO()const;
+	Cell & getSE()const;
+	Cell & getC()const;
 
-	RowHolder TopRow();
-	RowHolder MiddleRow();
-	RowHolder BottomRow();
+	RowHolder TopRow()const;
+	RowHolder MiddleRow()const;
+	RowHolder BottomRow()const;
 
-	ColumnHolder LeftColumn();
-	ColumnHolder MiddleColumn();
-	ColumnHolder RightColumn();
+	ColumnHolder LeftColumn()const;
+	ColumnHolder MiddleColumn()const;
+	ColumnHolder RightColumn()const;
 
 	
 

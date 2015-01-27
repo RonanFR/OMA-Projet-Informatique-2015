@@ -35,47 +35,48 @@ bool Region::isFull()
 		SO.isEmpty() || S.isEmpty() || SE.isEmpty());
 }
 
-Cell & Region::getN()
+Cell  Region::getN() const
 {
+	
 	return N;
 }
 
-Cell & Region::getS()
+Cell Region::getS()const
 {
 	return S;
 }
 
-Cell & Region::getE()
+Cell  Region::getE()const
 {
 	return E;
 }
 
-Cell & Region::getO()
+Cell Region::getO()const
 {
 	return O;
 }
 
-Cell & Region::getC()
+Cell Region::getC() const
 {
 	return C;
 }
 
-Cell & Region::getNE()
+Cell Region::getNE()const
 {
 	return NE;
 }
 
-Cell & Region::getNO()
+Cell Region::getNO()const
 {
 	return NO;
 }
 
-Cell & Region::getSE()
+Cell Region::getSE()const
 {
-	return SE;
+	return SE; 
 }
 
-Cell & Region::getSO()
+Cell Region::getSO()const
 {
 	return SO;
 }

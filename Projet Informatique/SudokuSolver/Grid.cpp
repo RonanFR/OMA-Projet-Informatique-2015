@@ -28,43 +28,43 @@ Grid::Grid(list<Region> regions)
 	}
 }
 
-RegionHolder & Grid::getN()
+RegionHolder & Grid::getN()const
 {
 	RegionHolder & rh_N = RegionHolder(N);
 	return rh_N;
 }
 
-RegionHolder & Grid::getS()
+RegionHolder & Grid::getS()const
 {
 	RegionHolder & rh_S = RegionHolder(S);
 	return rh_S;
 }
 
-RegionHolder & Grid::getE()
+RegionHolder & Grid::getE()const
 {
 	RegionHolder & rh_E = RegionHolder(E);
 	return rh_E;
 }
 
-RegionHolder & Grid::getO()
+RegionHolder & Grid::getO()const
 {
 	RegionHolder & rh_O = RegionHolder(O);
 	return rh_O;
 }
 
-RegionHolder & Grid::getC()
+RegionHolder & Grid::getC()const
 {
 	RegionHolder & rh_C = RegionHolder(C);
 	return rh_C;
 }
 
-RegionHolder & Grid::getNE()
+RegionHolder & Grid::getNE()const
 {
 	RegionHolder & rh_NE = RegionHolder(NE);
 	return rh_NE;
 }
 
-RegionHolder & Grid::getNO()
+RegionHolder & Grid::getNO()const
 {
 	RegionHolder & rh_NO = RegionHolder(NO);
 	return rh_NO;
