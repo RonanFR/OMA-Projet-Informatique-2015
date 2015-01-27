@@ -1,4 +1,4 @@
-#include "LastCellFinder.h"
+/*#include "LastCellFinder.h"
 
 
 LastCellFinder::LastCellFinder(TripleHolder triple1, TripleHolder triple2, TripleHolder triple3)
@@ -73,3 +73,4 @@ bool LastCellFinder::fill()
 	return (nombre_cell_vide == 1);
 
 }
+*/

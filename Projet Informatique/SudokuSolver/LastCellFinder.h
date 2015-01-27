@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include "TripleHolder.h"
 #include<list>
 #include<memory>
@@ -25,3 +25,4 @@ private:
 	TripleHolder triple2;
 	TripleHolder triple3;
 };
+*/

@@ -15,15 +15,15 @@ class SUDOKUSOLVER_API Grid
 public:
 	Grid(list<Region> regions);
 
-	RegionHolder & getN()const;
-	RegionHolder & getS()const;
-	RegionHolder & getE()const;
-	RegionHolder & getO()const;
-	RegionHolder & getNE()const;
-	RegionHolder & getNO()const;
-	RegionHolder & getSE()const;
-	RegionHolder & getSO()const;
-	RegionHolder & getC()const;
+	RegionHolder getN();
+	RegionHolder getS();
+	RegionHolder getE();
+	RegionHolder getO();
+	RegionHolder getNE();
+	RegionHolder getNO();
+	RegionHolder getSE();
+	RegionHolder getSO();
+	RegionHolder getC();
 
 private:
 	Region N;

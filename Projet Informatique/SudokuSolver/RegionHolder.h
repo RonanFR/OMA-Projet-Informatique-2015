@@ -12,7 +12,7 @@
 class SUDOKUSOLVER_API RegionHolder
 {
 public:
-	RegionHolder(Region const & region);
+	RegionHolder(Region  & region);
 
 	Cell & getN() const ;
 	Cell & getS() const;

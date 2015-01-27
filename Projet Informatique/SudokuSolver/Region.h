@@ -16,15 +16,15 @@ public:
 	Region();
 	Region(string chaine);
 	bool isFull();
-	Cell getN() const;
-	Cell getS() const;
-	Cell getE()const;
-	Cell getO() const;
-	Cell getNO()const;
-	Cell getNE()const;
-	Cell getSO()const;
-	Cell getSE()const;
-	Cell getC() const;
+	Cell & getN() ;
+	Cell & getS() ;
+	Cell & getE();
+	Cell & getO() ;
+	Cell & getNO();
+	Cell & getNE();
+	Cell & getSO();
+	Cell & getSE();
+	Cell & getC() ;
 private:
 	Cell N;
 	Cell S;

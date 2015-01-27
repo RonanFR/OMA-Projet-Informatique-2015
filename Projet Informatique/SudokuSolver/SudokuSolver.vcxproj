@@ -81,6 +81,7 @@
     <ClInclude Include="Cell.h" />
     <ClInclude Include="ColumnHolder.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="LastCellFinder.h" />
     <ClInclude Include="Region.h" />
     <ClInclude Include="RegionHolder.h" />
     <ClInclude Include="RowHolder.h" />
@@ -90,6 +91,7 @@
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="ColumnHolder.cpp" />
     <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="LastCellFinder.cpp" />
     <ClCompile Include="Region.cpp" />
     <ClCompile Include="RegionHolder.cpp" />
     <ClCompile Include="RowHolder.cpp" />

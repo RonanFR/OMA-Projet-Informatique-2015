@@ -28,56 +28,57 @@ Grid::Grid(list<Region> regions)
 	}
 }
 
-RegionHolder & Grid::getN()const
+RegionHolder  Grid::getN()
 {
-	RegionHolder & rh_N = RegionHolder(N);
-	return rh_N;
+	
+	return RegionHolder(N);
 }
 
-RegionHolder & Grid::getS()const
+RegionHolder  Grid::getS()
 {
-	RegionHolder & rh_S = RegionHolder(S);
-	return rh_S;
+	
+	return RegionHolder(S);
 }
 
-RegionHolder & Grid::getE()const
+RegionHolder  Grid::getE()
 {
-	RegionHolder & rh_E = RegionHolder(E);
-	return rh_E;
+	
+	return RegionHolder(E);
 }
 
-RegionHolder & Grid::getO()const
+RegionHolder  Grid::getO()
 {
-	RegionHolder & rh_O = RegionHolder(O);
-	return rh_O;
+	
+	return RegionHolder(O);
 }
 
-RegionHolder & Grid::getC()const
+RegionHolder  Grid::getC()
 {
-	RegionHolder & rh_C = RegionHolder(C);
-	return rh_C;
+	
+	
+	return RegionHolder(C);
 }
 
-RegionHolder & Grid::getNE()const
+RegionHolder  Grid::getNE()
 {
-	RegionHolder & rh_NE = RegionHolder(NE);
-	return rh_NE;
+	
+	return RegionHolder(NE);
 }
 
-RegionHolder & Grid::getNO()const
+RegionHolder  Grid::getNO()
 {
-	RegionHolder & rh_NO = RegionHolder(NO);
-	return rh_NO;
+	
+	return RegionHolder(NO);
 }
 
-RegionHolder & Grid::getSE()
+RegionHolder  Grid::getSE() 
 {
-	RegionHolder & rh_SE = RegionHolder(SE);
-	return rh_SE;
+	
+	return RegionHolder(SE);
 }
 
-RegionHolder & Grid::getSO()
+RegionHolder  Grid::getSO()
 {
-	RegionHolder & rh_SO = RegionHolder(SO);
-	return rh_SO;
+	
+	return RegionHolder(SO);
 }
