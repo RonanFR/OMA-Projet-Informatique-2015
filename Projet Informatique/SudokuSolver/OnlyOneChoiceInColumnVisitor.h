@@ -7,7 +7,7 @@
 # else
 # define SUDOKUSOLVER_API __declspec(dllimport)
 # endif
-class SUDOKUSOLVER_API OnlyOneChoiceInColumnVisitor : public Ivisitor
+class SUDOKUSOLVER_API OnlyOneChoiceInColumnVisitor : public IVisitor
 {
 public:
 

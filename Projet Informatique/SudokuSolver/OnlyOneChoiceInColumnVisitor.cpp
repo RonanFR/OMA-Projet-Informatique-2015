@@ -25,14 +25,15 @@ bool OnlyOneChoiceInColumnVisitor::Visit(Grid & ioGrid)const
 	LastCellFinder lastCellFinder8(ioGrid.getNE().MiddleColumn(), ioGrid.getE().MiddleColumn(), ioGrid.getSE().MiddleColumn());
 	LastCellFinder lastCellFinder9(ioGrid.getNE().RightColumn(), ioGrid.getE().RightColumn(), ioGrid.getSE().RightColumn());
 
-	lastCellFinder1.fill();
-	lastCellFinder2.fill();
-	lastCellFinder3.fill();
-	lastCellFinder4.fill();
-	lastCellFinder5.fill();
-	lastCellFinder6.fill();
-	lastCellFinder7.fill();
-	lastCellFinder8.fill();
-	lastCellFinder9.fill();
+	bool bool1 = lastCellFinder1.fill();
+	bool bool2 = lastCellFinder2.fill();
+	bool bool3 = lastCellFinder3.fill();
+	bool bool4 = lastCellFinder4.fill();
+	bool bool5 = lastCellFinder5.fill();
+	bool bool6 = lastCellFinder6.fill();
+	bool bool7 = lastCellFinder7.fill();
+	bool bool8 = lastCellFinder8.fill();
+	bool bool9 = lastCellFinder9.fill();
 
+	return bool1 || bool2 || bool3 || bool4 || bool5 || bool6 || bool7 || bool8 || bool9;
 }
