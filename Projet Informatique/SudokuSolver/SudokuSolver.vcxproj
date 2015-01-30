@@ -81,8 +81,9 @@
     <ClInclude Include="Cell.h" />
     <ClInclude Include="ColumnHolder.h" />
     <ClInclude Include="Grid.h" />
-    <ClInclude Include="IVisitor.h" />
+    <ClInclude Include="Ivisitor.h" />
     <ClInclude Include="LastCellFinder.h" />
+    <ClInclude Include="OnlyOneChoiceInColumnVisitor.h" />
     <ClInclude Include="OnlyOneChoiceInRowVisitor.h" />
     <ClInclude Include="Region.h" />
     <ClInclude Include="RegionHolder.h" />
@@ -93,8 +94,9 @@
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="ColumnHolder.cpp" />
     <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="IVisitor.cpp" />
+    <ClCompile Include="Ivisitor.cpp" />
     <ClCompile Include="LastCellFinder.cpp" />
+    <ClCompile Include="OnlyOneChoiceInColumnVisitor.cpp" />
     <ClCompile Include="OnlyOneChoiceInRowVisitor.cpp" />
     <ClCompile Include="Region.cpp" />
     <ClCompile Include="RegionHolder.cpp" />
