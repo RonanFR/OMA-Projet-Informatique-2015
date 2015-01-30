@@ -15,9 +15,17 @@ public:
 	Cell & getCell2()const;
 	Cell & getCell3()const;
 
+	int getNbEmptyCells();
+	Cell & getEmptyCell();
+	int getSumCells();
+
 protected:
 	Cell & cell1 ;
 	Cell & cell2 ;
 	Cell & cell3 ;
+
+	int nbEmptyCells;
+	Cell & emptyCell;
+	int sumCells;
 
 };

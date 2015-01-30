@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 #include "TripleHolder.h"
 #include<list>
 #include<memory>
@@ -18,11 +18,9 @@ public:
 	
 	bool fill() ;
 	
-	list<unique_ptr<Cell>> Getlist();
+	
 
 private:
-	TripleHolder triple1;
-	TripleHolder triple2;
-	TripleHolder triple3;
+	list<TripleHolder > triples;
+	
 };
-*/
