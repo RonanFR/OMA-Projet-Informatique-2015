@@ -84,6 +84,7 @@
     <ClInclude Include="Ivisitor.h" />
     <ClInclude Include="LastCellFinder.h" />
     <ClInclude Include="OnlyOneChoiceInColumnVisitor.h" />
+    <ClInclude Include="OnlyOneChoiceInRegionVisitor.h" />
     <ClInclude Include="OnlyOneChoiceInRowVisitor.h" />
     <ClInclude Include="Region.h" />
     <ClInclude Include="RegionHolder.h" />
@@ -97,6 +98,7 @@
     <ClCompile Include="Ivisitor.cpp" />
     <ClCompile Include="LastCellFinder.cpp" />
     <ClCompile Include="OnlyOneChoiceInColumnVisitor.cpp" />
+    <ClCompile Include="OnlyOneChoiceInRegionVisitor.cpp" />
     <ClCompile Include="OnlyOneChoiceInRowVisitor.cpp" />
     <ClCompile Include="Region.cpp" />
     <ClCompile Include="RegionHolder.cpp" />

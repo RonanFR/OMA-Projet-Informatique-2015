@@ -4,7 +4,7 @@
 # include <stdexcept>
 # include "OnlyOneChoiceInRowVisitor.h"
 # include "OnlyOneChoiceInColumnVisitor.h"
-
+# include "OnlyOneChoiceInRegionVisitor.h"
 
 using namespace std;
 
@@ -42,7 +42,7 @@ int main(){
 	Region region1("482------");
 	Region region2("-56-9----");
 	Region region3("793------");
-	Region region4("---------");
+	Region region4("1489-3275");
 	Region region5("-8--6--2-");
 	Region region6("---------");
 	Region region7("------78-");
@@ -72,6 +72,12 @@ int main(){
 	OnlyOneChoiceInColumnVisitor visitor2;
 	visitor2.Visit(grid1);
 	
+	cout << endl << endl;
+	grid1.dispGrid();
+
+	OnlyOneChoiceInRegionVisitor visitor3;
+	visitor3.Visit(grid1);
+
 	cout << endl << endl;
 	grid1.dispGrid();
 
