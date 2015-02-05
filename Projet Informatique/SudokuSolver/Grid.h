@@ -11,11 +11,12 @@ using namespace std;
 # define SUDOKUSOLVER_API __declspec(dllimport)
 # endif
 
+class IVisitor;
 class SUDOKUSOLVER_API Grid
 {
 public:
 	Grid(list<Region> regions);
-	//void Accept(IVisitor & visitor);
+	void Accept(IVisitor & visitor);
 	void dispGrid();
 
 	RegionHolder getN();
