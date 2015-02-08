@@ -37,12 +37,3 @@ int TripleHolder::getSumCells()
 {
 	return sumCells;
 }
-
-set <unsigned char> TripleHolder::flagValues(ValueEliminator valueEliminator)
-{
-	valueEliminator.flag(this->getCell1());
-	valueEliminator.flag(this->getCell2());
-	valueEliminator.flag(this->getCell3());
-
-	return valueEliminator.availableValue();
-}

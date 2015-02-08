@@ -51,12 +51,6 @@
     <ClInclude Include="OnlyOneChoiceInRegionVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ValueEliminator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NoAvailableValueException.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cell.cpp">
@@ -93,12 +87,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OnlyOneChoiceInRegionVisitor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ValueEliminator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NoAvailableValueException.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

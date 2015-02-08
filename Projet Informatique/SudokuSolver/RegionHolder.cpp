@@ -2,9 +2,7 @@
 
 
 RegionHolder::RegionHolder(Region &  region)
-	:N(region.getN()), S(region.getS()), E(region.getE()), 
-	O(region.getO()), NE(region.getNE()), NO(region.getNO()), 
-	SE(region.getSE()), SO(region.getSO()), C(region.getC())
+	:N(region.getN()), S(region.getS()), E(region.getE()), O(region.getO()), NE(region.getNE()), NO(region.getNO()), SE(region.getSE()), SO(region.getSO()), C(region.getC())
 {
 
 }
@@ -99,21 +97,4 @@ ColumnHolder RegionHolder::MiddleColumn()const
 
 	return rightcolumn;
 
-}
-
-set <unsigned char>  RegionHolder::flagValues(ValueEliminator valueEliminator)
-{
-	valueEliminator.flag(this->getNO());
-	valueEliminator.flag(this->getN());
-	valueEliminator.flag(this->getNE());
-
-	valueEliminator.flag(this->getE());
-	valueEliminator.flag(this->getC());
-	valueEliminator.flag(this->getO());
-	
-	valueEliminator.flag(this->getSO());
-	valueEliminator.flag(this->getS());
-	valueEliminator.flag(this->getSE());
-
-	return valueEliminator.availableValue();
 }
