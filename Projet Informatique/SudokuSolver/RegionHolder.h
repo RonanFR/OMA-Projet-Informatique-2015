@@ -2,6 +2,7 @@
 #include"Region.h"
 #include "RowHolder.h"
 #include "ColumnHolder.h"
+#include "ValueEliminator.h"
 
 #ifdef SUDOKUSOLVER_EXPORTS
 #define SUDOKUSOLVER_API __declspec(dllexport)
@@ -31,6 +32,9 @@ public:
 	ColumnHolder LeftColumn()const;
 	ColumnHolder MiddleColumn()const;
 	ColumnHolder RightColumn()const;
+
+	set <unsigned char> flagValues(ValueEliminator ValueEliminator);
+
 
 	
 

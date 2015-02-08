@@ -1,5 +1,6 @@
 #pragma once
 #include "Cell.h"
+#include "ValueEliminator.h"
 
 #ifdef SUDOKUSOLVER_EXPORTS
 #define SUDOKUSOLVER_API __declspec(dllexport)
@@ -18,6 +19,8 @@ public:
 	int getNbEmptyCells();
 	Cell & getEmptyCell();
 	int getSumCells();
+
+	set <unsigned char> flagValues(ValueEliminator ValueEliminator);
 
 protected:
 	Cell & cell1 ;
