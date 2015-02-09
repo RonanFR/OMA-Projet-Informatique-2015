@@ -43,6 +43,21 @@ set <unsigned char> TripleHolder::flagValues(ValueEliminator valueEliminator)
 	valueEliminator.flag(this->getCell1());
 	valueEliminator.flag(this->getCell2());
 	valueEliminator.flag(this->getCell3());
+	
+	if (valueEliminator.availableValues() == 0)
+	{
+		set<unsigned char> emptySet;
+		return  emptySet;
+	}
+	else
+	{
+		return valueEliminator.availableValue();
+	}
+}
 
-	return valueEliminator.availableValue();
+bool TripleHolder::isValuePresent(const unsigned char ivalue)
+{
+	ValueEliminator valueEliminator1;
+	set <unsigned char> flagValues = this->flagValues(valueEliminator1);
+	return flagValues.find(ivalue) == flagValues.end();
 }

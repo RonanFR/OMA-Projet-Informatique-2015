@@ -1,31 +1,32 @@
 # include"Grid.h"
 # include <stdexcept>
 # include<iostream>
+# include <math.h>
 
 
-
-Grid::Grid(list<Region> regions)
+Grid::Grid(Region NO, Region N, Region NE, Region O, Region C, 
+	Region E, Region SO, Region S, Region SE)
+	:N(N), NO(NO), NE(NE), S(S), E(E), O(O), C(C), SO(SO), SE(SE),
+	row1(this->getNO().TopRow(), this->getN().TopRow(), this->getNE().TopRow()),
+	row2(this->getNO().MiddleRow(), this->getN().MiddleRow(), this->getNE().MiddleRow()),
+	row3(this->getNO().BottomRow(), this->getN().BottomRow(), this->getNE().BottomRow()),
+	row4(this->getO().TopRow(), this->getC().TopRow(), this->getE().TopRow()),
+	row5(this->getO().MiddleRow(), this->getC().MiddleRow(), this->getE().MiddleRow()),
+	row6(this->getO().BottomRow(), this->getC().BottomRow(), this->getE().BottomRow()),
+	row7(this->getSO().TopRow(), this->getS().TopRow(), this->getSE().TopRow()),
+	row8(this->getSO().MiddleRow(), this->getS().MiddleRow(), this->getSE().MiddleRow()),
+	row9(this->getSO().BottomRow(), this->getS().BottomRow(), this->getSE().BottomRow()),
+	column1(this->getNO().LeftColumn(), this->getO().LeftColumn(), this->getSO().LeftColumn()),
+	column2(this->getNO().MiddleColumn(), this->getO().MiddleColumn(), this->getSO().MiddleColumn()),
+	column3(this->getNO().RightColumn(), this->getO().RightColumn(), this->getSO().RightColumn()),
+	column4(this->getN().LeftColumn(), this->getC().LeftColumn(), this->getS().LeftColumn()),
+	column5(this->getN().MiddleColumn(), this->getC().MiddleColumn(), this->getS().MiddleColumn()),
+	column6(this->getN().RightColumn(), this->getC().RightColumn(), this->getS().RightColumn()),
+	column7(this->getNE().LeftColumn(), this->getE().LeftColumn(), this->getSE().LeftColumn()),
+	column8(this->getNE().MiddleColumn(), this->getE().MiddleColumn(), this->getSE().MiddleColumn()),
+	column9(this->getNE().RightColumn(), this->getE().RightColumn(), this->getSE().RightColumn())
 
 {
-	if (regions.size() != 9)
-	{
-		throw length_error("Une grile doit contenir exactement 9 regions");
-	}
-	else
-	{
-		list<Region>::iterator it = regions.begin();
-		
-			NO = Region(*it);
-			N = Region(*++it);
-			NE = Region(*++it);
-			O = Region(*++it);
-			C = Region(*++it);
-			E = Region(*++it);
-			SO = Region(*++it);
-			S = Region(*++it);
-			SE = Region(*++it);
-		
-	}
 }
 
 RegionHolder  Grid::getN()
@@ -87,6 +88,118 @@ RegionHolder  Grid::getSO()
 //{
 //	visitor.Visit(*this);
 //}
+
+Column Grid::getColumn(const int j)
+{
+	switch (j)
+	{
+	case 1:{
+		return column1;
+	}
+	case 2:{
+		return column2;
+	}
+	case 3:{
+		return column3;
+	}
+	case 4:{
+		Column column(this->getN().LeftColumn(), this->getC().LeftColumn(), this->getS().LeftColumn());
+		return column4;
+	}
+	case 5:{
+		return column5;
+	}
+	case 6:{
+		return column6;
+	}
+	case 7:{
+		return column7;
+	}
+	case 8:{
+		return column8;
+	}
+	case 9:{
+		return column9;
+	}
+	}
+}
+
+Row Grid::getRow(int i)
+{
+	switch (i)
+	{
+	case 1:{
+		return row1;
+	}
+	case 2:{
+		return row2;
+	}
+	case 3:{
+		return row3;
+	}
+	case 4:{
+		return row4;
+	}
+	case 5:{
+		return row5;
+	}
+	case 6:{
+		return row6;
+	}
+	case 7:{
+		return row7;
+	}
+	case 8:{
+		return row8;
+	}
+	case 9:{
+		return row9;
+	}
+	}
+}
+
+RegionHolder  Grid::getRegion(const int i, const int j)
+{
+	switch ((int)ceil((double)i / 3.0) + (int)ceil((double)j / 3.0) * 3)
+	{
+	case 4:
+	{
+		return this->getNO();
+	}
+	case 5:
+	{
+		return this->getO();
+	}
+	case 6:
+	{
+		return this->getSO();
+	}
+	case 7:
+	{
+		return this->getN();
+	}
+	case 8:
+	{
+		return this->getC();
+	}
+	case 9:
+	{
+		return this->getS();
+	}
+	case 10:
+	{
+		return this->getNE();
+	}
+	case 11:
+	{
+		return this->getE();
+	}
+	case 12:
+	{
+		return this->getSE();
+	}
+	}
+}
 
 void Grid::dispGrid()
 {

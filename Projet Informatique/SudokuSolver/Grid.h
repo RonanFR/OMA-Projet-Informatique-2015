@@ -1,7 +1,8 @@
 # pragma once
 # include "RegionHolder.h"
+# include "Column.h"
+# include "Row.h"
 # include <list>
-//# include "IVisitor.h"
 
 using namespace std;
 
@@ -15,7 +16,8 @@ class IVisitor;
 class SUDOKUSOLVER_API Grid
 {
 public:
-	Grid(list<Region> regions);
+	Grid(Region NO, Region N, Region NE, Region O, Region C,
+		Region E, Region SO, Region S, Region SE);
 	void Accept(IVisitor & visitor);
 	void dispGrid();
 
@@ -29,6 +31,10 @@ public:
 	RegionHolder getSO();
 	RegionHolder getC();
 
+	Column getColumn(const int j);
+	Row getRow(const int i);
+	RegionHolder getRegion(const int i, const int j);
+
 private:
 	Region N;
 	Region S;
@@ -40,5 +46,24 @@ private:
 	Region SO;
 	Region C;
 
+	Row row1;
+	Row row2;
+	Row row3;
+	Row row4;
+	Row row5;
+	Row row6;
+	Row row7;
+	Row row8;
+	Row row9;
+
+	Column column1;
+	Column column2;
+	Column column3;
+	Column column4;
+	Column column5;
+	Column column6;
+	Column column7;
+	Column column8;
+	Column column9;
 
 };

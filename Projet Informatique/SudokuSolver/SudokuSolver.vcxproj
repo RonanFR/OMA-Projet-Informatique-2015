@@ -64,7 +64,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;SUDOKUSOLVER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -79,34 +79,44 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Cell.h" />
+    <ClInclude Include="Column.h" />
     <ClInclude Include="ColumnHolder.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Ivisitor.h" />
     <ClInclude Include="LastCellFinder.h" />
+    <ClInclude Include="NineHolder.h" />
     <ClInclude Include="NoAvailableValueException.h" />
     <ClInclude Include="OnlyOneChoiceInColumnVisitor.h" />
     <ClInclude Include="OnlyOneChoiceInRegionVisitor.h" />
     <ClInclude Include="OnlyOneChoiceInRowVisitor.h" />
+    <ClInclude Include="OnlySquareVisitor.h" />
     <ClInclude Include="Region.h" />
     <ClInclude Include="RegionHolder.h" />
+    <ClInclude Include="Row.h" />
     <ClInclude Include="RowHolder.h" />
     <ClInclude Include="TripleHolder.h" />
+    <ClInclude Include="TwoOutOfThreeRowVisitor.h" />
     <ClInclude Include="ValueEliminator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="Column.cpp" />
     <ClCompile Include="ColumnHolder.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Ivisitor.cpp" />
     <ClCompile Include="LastCellFinder.cpp" />
+    <ClCompile Include="NineHolder.cpp" />
     <ClCompile Include="NoAvailableValueException.cpp" />
     <ClCompile Include="OnlyOneChoiceInColumnVisitor.cpp" />
     <ClCompile Include="OnlyOneChoiceInRegionVisitor.cpp" />
     <ClCompile Include="OnlyOneChoiceInRowVisitor.cpp" />
+    <ClCompile Include="OnlySquareVisitor.cpp" />
     <ClCompile Include="Region.cpp" />
     <ClCompile Include="RegionHolder.cpp" />
+    <ClCompile Include="Row.cpp" />
     <ClCompile Include="RowHolder.cpp" />
     <ClCompile Include="TripleHolder.cpp" />
+    <ClCompile Include="TwoOutOfThreeRowVisitor.cpp" />
     <ClCompile Include="ValueEliminator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

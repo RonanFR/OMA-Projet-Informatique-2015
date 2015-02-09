@@ -8,15 +8,15 @@ RowHolder::RowHolder(Cell & cell1, Cell & cell2, Cell & cell3)
 
 Cell & RowHolder :: G()
 {
-	return this->getCell1();
+	return cell1;
 }
 
 Cell & RowHolder::C()
 {
-	return this->getCell2();
+	return cell2;
 }
 
 Cell & RowHolder::D()
 {
-	return this->getCell3();
+	return cell3;
 }

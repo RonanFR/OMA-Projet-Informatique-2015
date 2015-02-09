@@ -8,15 +8,15 @@ ColumnHolder::ColumnHolder(Cell & cell1, Cell & cell2, Cell & cell3)
 
 Cell & ColumnHolder::T()
 {
-	return this->getCell1();
+	return cell1;
 }
 
 Cell & ColumnHolder::C()
 {
-	return this->getCell2();
+	return cell2;
 }
 
 Cell & ColumnHolder::B()
 {
-	return this->getCell3();
+	return cell3;
 }

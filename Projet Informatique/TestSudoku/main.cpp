@@ -5,6 +5,7 @@
 # include "OnlyOneChoiceInRowVisitor.h"
 # include "OnlyOneChoiceInColumnVisitor.h"
 # include "OnlyOneChoiceInRegionVisitor.h"
+# include "OnlySquareVisitor.h"
 
 using namespace std;
 
@@ -39,47 +40,35 @@ int main(){
 		cerr << il.what() << endl;
 	}*/
 
-	Region region1("482------");
-	Region region2("-56-9----");
-	Region region3("793------");
-	Region region4("1489-3275");
-	Region region5("-8--6--2-");
-	Region region6("---------");
-	Region region7("------78-");
-	Region region8("-4--7-231");
-	Region region9("------456");
+	// Test Only Square Visitor
+	cout << "Test Only Square Visitor" << endl << endl;
+
+	Region NO("2619-87--");
+	Region N("495176832");
+	Region NE("873-45--6");
+	Region O("12638-4--");
+	Region C("987654321");
+	Region E("--4-27689");
+	Region SO("5--69-873");
+	Region S("763518249");
+	Region SE("--87-2561");
+
+	Grid grid1(NO,N,NE,O,C,E,SO,S,SE);
+	OnlySquareVisitor visitor;
 	
-	list<Region> regions;
-	regions.push_back(region1);
-	regions.push_back(region2);
-	regions.push_back(region3);
-	regions.push_back(region4);
-	regions.push_back(region5);
-	regions.push_back(region6);
-	regions.push_back(region7);
-	regions.push_back(region8);
-	regions.push_back(region9);
-
-	Grid grid1(regions);
+	cout << "Original Sudoku" << endl;
 	grid1.dispGrid();
-
-	OnlyOneChoiceInRowVisitor visitor1;
-	visitor1.Visit(grid1);
-
 	cout << endl << endl;
-	grid1.dispGrid();
-
-	OnlyOneChoiceInColumnVisitor visitor2;
-	visitor2.Visit(grid1);
 	
-	cout << endl << endl;
+	cout << "First Visit" << endl;
+	visitor.Visit(grid1);
 	grid1.dispGrid();
-
-	OnlyOneChoiceInRegionVisitor visitor3;
-	visitor3.Visit(grid1);
-
 	cout << endl << endl;
+	
+	cout << "Second Visit" << endl;
+	visitor.Visit(grid1);
 	grid1.dispGrid();
+	cout << endl << endl;
 
 	getchar();
 	return 0;

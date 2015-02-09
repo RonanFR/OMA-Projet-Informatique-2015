@@ -79,7 +79,7 @@ RowHolder RegionHolder::BottomRow()const
 
 ColumnHolder RegionHolder::LeftColumn()const
 {
-	ColumnHolder leftcolumn(this->getNO(), this->getC(), this->getSO());
+	ColumnHolder leftcolumn(this->getNO(), this->getO(), this->getSO());
 	
 	return leftcolumn;
 
@@ -115,5 +115,20 @@ set <unsigned char>  RegionHolder::flagValues(ValueEliminator valueEliminator)
 	valueEliminator.flag(this->getS());
 	valueEliminator.flag(this->getSE());
 
-	return valueEliminator.availableValue();
+	if (valueEliminator.availableValues() == 0)
+	{
+		set<unsigned char> emptySet;
+		return  emptySet;
+	}
+	else
+	{
+		return valueEliminator.availableValue();
+	}
+}
+
+bool RegionHolder::isValuePresent(const unsigned char ivalue)
+{
+	ValueEliminator valueEliminator1;
+	set <unsigned char> flagValues = this->flagValues(valueEliminator1);
+	return flagValues.find(ivalue) == flagValues.end();
 }

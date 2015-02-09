@@ -12,7 +12,7 @@ class SUDOKUSOLVER_API TripleHolder
 {
 public:
 	TripleHolder(Cell & cell1, Cell & cell2, Cell & cell3);
-	Cell & getCell1()const ;
+	Cell & getCell1()const;
 	Cell & getCell2()const;
 	Cell & getCell3()const;
 
@@ -21,6 +21,7 @@ public:
 	int getSumCells();
 
 	set <unsigned char> flagValues(ValueEliminator ValueEliminator);
+	bool isValuePresent(const unsigned char ivalue);
 
 protected:
 	Cell & cell1 ;

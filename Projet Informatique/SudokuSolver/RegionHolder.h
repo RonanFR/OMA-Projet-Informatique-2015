@@ -34,8 +34,7 @@ public:
 	ColumnHolder RightColumn()const;
 
 	set <unsigned char> flagValues(ValueEliminator ValueEliminator);
-
-
+	bool isValuePresent(const unsigned char ivalue);
 	
 
 private:

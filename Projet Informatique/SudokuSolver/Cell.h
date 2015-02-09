@@ -6,6 +6,7 @@
 # define SUDOKUSOLVER_API __declspec(dllimport)
 # endif
 
+
 class SUDOKUSOLVER_API Cell{
 public:
 	Cell();
