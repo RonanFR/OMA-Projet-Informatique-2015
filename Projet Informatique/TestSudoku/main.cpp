@@ -75,15 +75,15 @@ int main(){
 	//cout << endl << endl;
 
 	//// Test Two out of Three Visitor
-	//Region NO("--9634125");
-	//Region N("51----6-9");
-	//Region NE("-6259-7-4");
-	//Region O("---------");
-	//Region C("--7---32-");
-	//Region E("---------");
-	//Region SO("---------");
-	//Region S("173------");
-	//Region SE("---------");
+	/*Region NO("--9634125");
+	Region N("51----6-9");
+	Region NE("-6259-7-4");
+	Region O("---------");
+	Region C("--7---32-");
+	Region E("---------");
+	Region SO("---------");
+	Region S("173------");
+	Region SE("---------");*/
 
 	//Grid grid2(NO, N, NE, O, C, E, SO, S, SE);
 
@@ -110,7 +110,6 @@ int main(){
 	Region SE("8--5-----");
 
 	Grid grid2(NO, N, NE, O, C, E, SO, S, SE);
-
 	GridSolver gridSolver;
 
 	cout << "Original Sudoku" << endl;

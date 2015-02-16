@@ -132,3 +132,9 @@ bool RegionHolder::isValuePresent(const unsigned char ivalue)
 	set <unsigned char> flagValues = this->flagValues(valueEliminator1);
 	return flagValues.find(ivalue) == flagValues.end();
 }
+
+bool RegionHolder::isFull() const
+{
+	return !this->getN().isEmpty() && !this->getS().isEmpty() && !this->getE().isEmpty() && !this->getO().isEmpty()
+		&& !this->getNO().isEmpty() && !this->getNE().isEmpty() && !this->getSO().isEmpty() && !this->getSE().isEmpty() && !this->getC().isEmpty();
+}

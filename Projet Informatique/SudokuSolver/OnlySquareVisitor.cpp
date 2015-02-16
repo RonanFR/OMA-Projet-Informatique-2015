@@ -1,4 +1,6 @@
-#include "OnlySquareVisitor.h"
+# include "OnlySquareVisitor.h"
+# include <set>
+# include <algorithm>
 
 
 OnlySquareVisitor::OnlySquareVisitor()
@@ -11,61 +13,50 @@ OnlySquareVisitor::~OnlySquareVisitor()
 
 bool OnlySquareVisitor::Visit(Grid & ioGrid) const
 {
-	int i;
 	bool gridModified = false;
-	set <int> emptyCellsIndices;
-	set <unsigned char> flags;
-	ValueEliminator valueEliminator1;
-	for (i = 1; i<=9; i++)
+	ValueEliminator valueEliminator;
+	set < unsigned char > missingValues;
+	set < unsigned char > missingValues2;
+	set < unsigned char > possilbleValues;
+	set < unsigned char > possilbleValues2;
+	set < int > emptyCells;
+	set<int>::iterator it;
+
+	for (int i = 1; i <= 9; i++)
 	{
-		// Visit all columns
-		emptyCellsIndices = ioGrid.getColumn(i).getEmptyCellsIndices();
-		if (emptyCellsIndices.size() == 2)
+		// Visit column i
+		missingValues = ioGrid.getColumn(i).flagValues(valueEliminator);
+		emptyCells = ioGrid.getColumn(i).getEmptyCellsIndices();
+		it = emptyCells.begin();
+		while (it != emptyCells.end())
 		{
-			flags = ioGrid.getColumn(i).flagValues(valueEliminator1);
-			
-			if (ioGrid.getRow(*emptyCellsIndices.begin()).isValuePresent(*flags.begin()) || ioGrid.getRow(*(++emptyCellsIndices.begin())).isValuePresent(*(++flags.begin()))
-				|| ioGrid.getRegion(*emptyCellsIndices.begin(), i).isValuePresent(*flags.begin()) || ioGrid.getRegion(*(++emptyCellsIndices.begin()), i).isValuePresent(*(++flags.begin())))
-			{
-				ioGrid.getColumn(i).get(*emptyCellsIndices.begin()) = *(++flags.begin());
-				ioGrid.getColumn(i).get(*(++emptyCellsIndices.begin())) = *flags.begin();
-				gridModified = true;
-			}
-			else if (ioGrid.getRow(*emptyCellsIndices.begin()).isValuePresent(*(++flags.begin())) || ioGrid.getRow(*(++emptyCellsIndices.begin())).isValuePresent(*flags.begin())
-				|| ioGrid.getRegion(*emptyCellsIndices.begin(), i).isValuePresent(*(++flags.begin())) || ioGrid.getRegion(*(++emptyCellsIndices.begin()), i).isValuePresent(*flags.begin()))
-			{
-				ioGrid.getColumn(i).get(*emptyCellsIndices.begin()) = *flags.begin();
-				ioGrid.getColumn(i).get(*(++emptyCellsIndices.begin())) = *(++flags.begin());
-				gridModified = true;
-			}
-		}
+			// Check row
+			missingValues2 = ioGrid.getRow(*it).flagValues(valueEliminator);
+			set_intersection(missingValues.begin(), missingValues.end(), missingValues2.begin(),
+				missingValues2.end(), inserter(possilbleValues, possilbleValues.begin()));
 
-		// Visit all rows
-		emptyCellsIndices = ioGrid.getRow(i).getEmptyCellsIndices();
-		if (emptyCellsIndices.size() == 2)
-		{
-			flags = ioGrid.getRow(i).flagValues(valueEliminator1);
+			// Check Region
+			missingValues2 = ioGrid.getRegion(*it,i).flagValues(valueEliminator);
+			set_intersection(possilbleValues.begin(), possilbleValues.end(), missingValues2.begin(),
+				missingValues2.end(), inserter(possilbleValues2, possilbleValues2.begin()));
 
-			if (ioGrid.getColumn(*emptyCellsIndices.begin()).isValuePresent(*flags.begin()) || 
-				ioGrid.getColumn(*(++emptyCellsIndices.begin())).isValuePresent(*(++flags.begin())) || 
-				ioGrid.getRegion(i,*emptyCellsIndices.begin()).isValuePresent(*flags.begin()) ||
-				ioGrid.getRegion(i,*(++emptyCellsIndices.begin())).isValuePresent(*(++flags.begin())))
+			if (possilbleValues2.size() == 1)
 			{
-				ioGrid.getRow(i).get(*emptyCellsIndices.begin()) = *(++flags.begin());
-				ioGrid.getRow(i).get(*(++emptyCellsIndices.begin())) = *flags.begin();
+				ioGrid.getColumn(i).get(*it) = *possilbleValues2.begin();
 				gridModified = true;
 			}
-			else if (ioGrid.getColumn(*emptyCellsIndices.begin()).isValuePresent(*(++flags.begin())) ||
-				ioGrid.getColumn(*(++emptyCellsIndices.begin())).isValuePresent(*flags.begin()) ||
-				ioGrid.getRegion(i,*emptyCellsIndices.begin()).isValuePresent(*(++flags.begin())) ||
-				ioGrid.getRegion(i,*(++emptyCellsIndices.begin())).isValuePresent(*flags.begin()))
-			{
-				ioGrid.getRow(i).get(*emptyCellsIndices.begin()) = *flags.begin();
-				ioGrid.getRow(i).get(*(++emptyCellsIndices.begin())) = *(++flags.begin());
-				gridModified = true;
-			}
+
+			// Clear sets
+			possilbleValues.clear();
+			possilbleValues2.clear();
+			missingValues.clear();
+			missingValues2.clear();
+
+			it++; // Increment cell index
 		}
+		
 	}
+
 
 	return gridModified;
 }

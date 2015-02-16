@@ -29,6 +29,12 @@ Grid::Grid(Region NO, Region N, Region NE, Region O, Region C,
 {
 }
 
+bool Grid::isFull()
+{
+	return this->getN().isFull() && this->getS().isFull() && this->getE().isFull() && this->getO().isFull()
+		&& this->getNO().isFull() && this->getNE().isFull() && this->getSO().isFull() && this->getSE().isFull() && this->getC().isFull();
+}
+
 RegionHolder  Grid::getN()
 {
 	

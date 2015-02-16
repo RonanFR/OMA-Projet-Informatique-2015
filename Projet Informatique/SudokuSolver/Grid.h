@@ -34,6 +34,7 @@ public:
 	Column getColumn(const int j);
 	Row getRow(const int i);
 	RegionHolder getRegion(const int i, const int j);
+	bool isFull();
 
 private:
 	Region N;
