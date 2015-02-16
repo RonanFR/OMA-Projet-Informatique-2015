@@ -1,5 +1,5 @@
 #pragma once
-#include"NoAvailableValueException.h"
+# include <iostream>;
 #include <set>
 
 using namespace std;
@@ -10,7 +10,7 @@ using namespace std;
 #define SUDOKUSOLVER_API __declspec(dllimport)
 #endif
 
-class SUDOKUSOLVER_API ValueEliminator
+class ValueEliminator
 {
 public:
 	ValueEliminator();
