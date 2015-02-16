@@ -72,6 +72,12 @@
     <ClInclude Include="TwoOutOfThreeRowVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TwoOutOfThreeColumnVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridSolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cell.cpp">
@@ -129,6 +135,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TwoOutOfThreeRowVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TwoOutOfThreeColumnVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GridSolver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

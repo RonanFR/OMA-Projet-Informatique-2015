@@ -7,11 +7,11 @@
 #define SUDOKUSOLVER_API __declspec(dllimport)
 #endif
 
-class SUDOKUSOLVER_API TwoOutOfThreeRowVisitor: public IVisitor
+class SUDOKUSOLVER_API TwoOutOfThreeColumnVisitor: public IVisitor
 {
 public:
-	TwoOutOfThreeRowVisitor();
-	~TwoOutOfThreeRowVisitor();
+	TwoOutOfThreeColumnVisitor();
+	~TwoOutOfThreeColumnVisitor();
 	bool Visit(Grid & iogrid) const;
 };
 
