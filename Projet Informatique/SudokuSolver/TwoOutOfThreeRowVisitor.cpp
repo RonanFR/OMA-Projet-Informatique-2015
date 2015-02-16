@@ -36,7 +36,7 @@ bool TwoOutOfThreeRowVisitor::Visit(Grid & iogrid) const
 				{
 					nRow1++;
 				}
-				nRow2 = ++nRow;
+				nRow2 = nRow1+1;
 				while (nRow2 < 3 && iogrid.getRow(nRow2 + 3 * nThreeRows).isValuePresent(value))
 				{
 					nRow2++;

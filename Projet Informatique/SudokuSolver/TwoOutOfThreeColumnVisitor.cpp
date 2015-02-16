@@ -37,7 +37,7 @@ bool TwoOutOfThreeColumnVisitor::Visit(Grid & iogrid) const
 					nCol1++;
 
 				}
-				nCol2 = ++nCol;
+				nCol2 = nCol1+1;
 				while (nCol2 < 3 && iogrid.getColumn(nCol2 + 3 * nThreeColumns).isValuePresent(value))
 				{
 					nCol2++;
