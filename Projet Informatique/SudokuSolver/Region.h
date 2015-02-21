@@ -16,15 +16,19 @@ public:
 	Region();
 	Region(string chaine);
 	bool isFull();
+	bool isConsistent() const;
+	int getNbEmptyCells() const;
+	Region & operator =(Region const & region);
 	Cell & getN() ;
 	Cell & getS() ;
-	Cell & getE();
+	Cell & getE() ;
 	Cell & getO() ;
-	Cell & getNO();
-	Cell & getNE();
-	Cell & getSO();
-	Cell & getSE();
+	Cell & getNO() ;
+	Cell & getNE() ;
+	Cell & getSO() ;
+	Cell & getSE() ;
 	Cell & getC() ;
+
 private:
 	Cell N;
 	Cell S;

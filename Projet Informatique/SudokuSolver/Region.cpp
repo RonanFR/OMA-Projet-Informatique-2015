@@ -1,6 +1,7 @@
 #include "Region.h"
 # include <stdexcept>
 #include<iostream>
+# include "ValueEliminator.h"
 
 Region::Region(){
 
@@ -41,7 +42,7 @@ Cell  & Region::getN()
 	return N;
 }
 
-Cell &Region::getS()
+Cell & Region::getS()
 {
 	return S;
 }
@@ -79,4 +80,47 @@ Cell & Region::getSE()
 Cell & Region::getSO()
 {
 	return SO;
+}
+
+int  Region::getNbEmptyCells() const
+{
+	return N.isEmpty() + NE.isEmpty() + NO.isEmpty() + O.isEmpty() + 
+		E.isEmpty() + C.isEmpty() + SO.isEmpty() + SE.isEmpty() + S.isEmpty();
+}
+
+bool  Region::isConsistent() const
+{
+	ValueEliminator valueEliminator;
+	valueEliminator.flag(NO);
+	valueEliminator.flag(N);
+	valueEliminator.flag(NE);
+
+	valueEliminator.flag(E);
+	valueEliminator.flag(C);
+	valueEliminator.flag(O);
+
+	valueEliminator.flag(SO);
+	valueEliminator.flag(S);
+	valueEliminator.flag(SE);
+
+	if (valueEliminator.availableValues() != this->getNbEmptyCells())
+	{
+		return false;
+	}
+	return true;
+}
+
+Region & Region::operator =(Region const & region)
+{
+	C=region.C;
+	O = region.O;
+	E = region.E;
+	N = region.N;
+	NO = region.NO;
+	NE = region.NE;
+	S = region.S;
+	SO = region.SO;
+	SE = region.SE;
+	
+	return *this;
 }

@@ -13,5 +13,6 @@ public:
 	OnlySquareVisitor();
 	~OnlySquareVisitor();
 	bool Visit(Grid & ioGrid) const;
+	set<unsigned char> findPossibleValues(Grid & ioGrid, int i, int j) const;
 };
 

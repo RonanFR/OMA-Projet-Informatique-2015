@@ -1,7 +1,7 @@
 #include "RegionHolder.h"
 
 
-RegionHolder::RegionHolder(Region &  region)
+RegionHolder::RegionHolder(Region &   region)
 	:N(region.getN()), S(region.getS()), E(region.getE()), 
 	O(region.getO()), NE(region.getNE()), NO(region.getNO()), 
 	SE(region.getSE()), SO(region.getSO()), C(region.getC())
@@ -138,3 +138,6 @@ bool RegionHolder::isFull() const
 	return !this->getN().isEmpty() && !this->getS().isEmpty() && !this->getE().isEmpty() && !this->getO().isEmpty()
 		&& !this->getNO().isEmpty() && !this->getNE().isEmpty() && !this->getSO().isEmpty() && !this->getSE().isEmpty() && !this->getC().isEmpty();
 }
+
+
+

@@ -16,7 +16,7 @@ Cell::Cell(unsigned char input)
 	}
 }
 
-bool Cell::isEmpty()
+bool Cell::isEmpty() const
 {
 	if (value == '-')
 	{
@@ -28,7 +28,7 @@ bool Cell::isEmpty()
 	}
 }
 
-Cell & Cell ::operator=(unsigned char iValue)
+Cell & Cell ::operator=(unsigned char const iValue)
 {
 	value = iValue;
 	return *this;

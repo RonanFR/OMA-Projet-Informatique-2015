@@ -27,15 +27,15 @@ bool GridSolver::solveOnlyOneChoice(Grid & iogrid) const
 	OnlyOneChoiceInRegionVisitor onlyOneChoiceInRegionVisitor;
 	OnlyOneChoiceInRowVisitor onlyOneChoiceInRowVisitor;
 
-	while (hasGridChanged && !iogrid.isFull())
+	while (hasGridChanged && !iogrid.isFull() && iogrid.isConsistent())
 	{
 		bool1 = onlyOneChoiceInColumnVisitor.Visit(iogrid);
-		if (iogrid.isFull())
+		if (iogrid.isFull() || !iogrid.isConsistent())
 		{
 			break;
 		}
 		bool2 = onlyOneChoiceInRegionVisitor.Visit(iogrid);
-		if (iogrid.isFull())
+		if (iogrid.isFull() || !iogrid.isConsistent())
 		{
 			break;
 		}
@@ -55,7 +55,7 @@ bool GridSolver::solveOnlySquare(Grid & iogrid) const
 	bool isGridModified = false;
 	OnlySquareVisitor onlySquareVisitor;
 
-	while (hasGridChanged && !iogrid.isFull())
+	while (hasGridChanged && !iogrid.isFull() && iogrid.isConsistent())
 	{
 		hasGridChanged = onlySquareVisitor.Visit(iogrid);
 		if (hasGridChanged)
@@ -75,10 +75,10 @@ bool GridSolver::solveTwoOutOfThree(Grid & iogrid) const
 	TwoOutOfThreeColumnVisitor twoOutOfThreeColumnVisitor;
 	TwoOutOfThreeRowVisitor twoOutOfThreeRowVisitor;
 
-	while (hasGridChanged && !iogrid.isFull())
+	while (hasGridChanged && !iogrid.isFull() && iogrid.isConsistent())
 	{
 		bool1 = twoOutOfThreeColumnVisitor.Visit(iogrid);
-		if (iogrid.isFull())
+		if (iogrid.isFull() || !iogrid.isConsistent())
 		{
 			break;
 		}
@@ -98,15 +98,15 @@ void GridSolver::solve(Grid & iogrid) const
 	bool bool1;
 	bool bool2;
 	bool bool3;
-	while (hasGridChanged && !iogrid.isFull())
+	while (hasGridChanged && !iogrid.isFull() && iogrid.isConsistent())
 	{
 		bool1 = solveOnlyOneChoice(iogrid);
-		if (iogrid.isFull())
+		if (iogrid.isFull() || !iogrid.isConsistent())
 		{
 			break;
 		}
 		bool2 = solveOnlySquare(iogrid);
-		if (iogrid.isFull())
+		if (iogrid.isFull() || !iogrid.isConsistent())
 		{
 			break;
 		}

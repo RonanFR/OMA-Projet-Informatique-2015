@@ -16,7 +16,7 @@ bool NineHolder::isValuePresent(const unsigned char ivalue)
 	return tripleHolder1.isValuePresent(ivalue) || tripleHolder2.isValuePresent(ivalue) || tripleHolder3.isValuePresent(ivalue);
 }
 
-Cell & NineHolder::get(int i)
+Cell & NineHolder::get(int i) const
 {
 	switch (i)
 	{
@@ -70,3 +70,23 @@ set <unsigned char>  NineHolder::flagValues(ValueEliminator valueEliminator)
 		return valueEliminator.availableValue();
 	}
 }
+
+int  NineHolder::getNbEmptyCells() const 
+{
+	return tripleHolder1.getNbEmptyCells() + tripleHolder2.getNbEmptyCells() + tripleHolder3.getNbEmptyCells();
+}
+
+bool  NineHolder::isConsistent() const
+{
+	ValueEliminator valueEliminator;
+	for (int i = 1; i <= 9; i++)
+	{
+		valueEliminator.flag(this->get(i));
+	}
+	if (valueEliminator.availableValues() != this->getNbEmptyCells())
+	{
+		return false;
+	}
+	return true;
+}
+

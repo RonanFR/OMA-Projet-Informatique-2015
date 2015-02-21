@@ -16,20 +16,17 @@ public:
 	Cell & getCell2()const;
 	Cell & getCell3()const;
 
-	int getNbEmptyCells();
+	int getNbEmptyCells() const;
 	Cell & getEmptyCell();
 	int getSumCells();
 
 	set <unsigned char> flagValues(ValueEliminator ValueEliminator);
 	bool isValuePresent(const unsigned char ivalue);
+	TripleHolder & operator =(TripleHolder const tripleHolder);
 
 protected:
 	Cell & cell1 ;
 	Cell & cell2 ;
 	Cell & cell3 ;
-
-	int nbEmptyCells;
-	Cell & emptyCell;
-	int sumCells;
 
 };

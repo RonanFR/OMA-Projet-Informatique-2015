@@ -13,9 +13,11 @@ public:
 	NineHolder(TripleHolder tripleHolder1, TripleHolder tripleHolder2, TripleHolder tripleHolder3);
 	~NineHolder();
 	bool isValuePresent(const unsigned char ivalue);
-	Cell & get(int i);
+	Cell & get(int i) const;
 	set < int > getEmptyCellsIndices();
 	set <unsigned char>  flagValues(ValueEliminator valueEliminator);
+	int getNbEmptyCells() const;
+	bool isConsistent() const;
 protected:
 	TripleHolder tripleHolder1;
 	TripleHolder tripleHolder2;

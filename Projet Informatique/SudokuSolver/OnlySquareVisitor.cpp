@@ -60,3 +60,27 @@ bool OnlySquareVisitor::Visit(Grid & ioGrid) const
 
 	return gridModified;
 }
+
+set<unsigned char> OnlySquareVisitor::findPossibleValues(Grid & ioGrid, int i, int j) const
+{
+	ValueEliminator valueEliminator;
+	set < unsigned char > missingValues;
+	set < unsigned char > missingValues2;
+	set < unsigned char > possilbleValues;
+	set < unsigned char > possilbleValues2;
+	
+	// Check column j
+	missingValues = ioGrid.getColumn(j).flagValues(valueEliminator);
+
+	// Check row i
+	missingValues2 = ioGrid.getRow(i).flagValues(valueEliminator);
+	set_intersection(missingValues.begin(), missingValues.end(), missingValues2.begin(),
+		missingValues2.end(), inserter(possilbleValues, possilbleValues.begin()));
+
+	// Check Region of cell (i,j)
+	missingValues2 = ioGrid.getRegion(i, j).flagValues(valueEliminator);
+	set_intersection(possilbleValues.begin(), possilbleValues.end(), missingValues2.begin(),
+		missingValues2.end(), inserter(possilbleValues2, possilbleValues2.begin()));
+
+	return possilbleValues2;
+}

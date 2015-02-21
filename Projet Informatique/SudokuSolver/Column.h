@@ -13,5 +13,6 @@ class SUDOKUSOLVER_API Column :public NineHolder
 public:
 	Column(ColumnHolder columnHolder1, ColumnHolder columnHolder2, ColumnHolder columnHolder3);
 	~Column();
+	Column & Column::operator =(Column const & Column);
 };
 

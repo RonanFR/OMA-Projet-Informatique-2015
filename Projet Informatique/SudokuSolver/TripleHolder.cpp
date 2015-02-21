@@ -1,11 +1,8 @@
 # include "TripleHolder.h"
 
 TripleHolder::TripleHolder(Cell & cell1, Cell & cell2, Cell & cell3)
-	:cell1(cell1), cell2(cell2), cell3(cell3), 
-	emptyCell((cell1.isEmpty()) ? cell1 : ((cell2.isEmpty())?cell2:cell3))
+	:cell1(cell1), cell2(cell2), cell3(cell3)
 {
-	sumCells = (char)cell1 * (int)!(cell1.isEmpty()) + (char)cell2* (int)!(cell2.isEmpty()) + (char)cell3 * (int)!(cell3.isEmpty());
-	nbEmptyCells = (int)cell1.isEmpty() + (int)cell2.isEmpty() + (int)cell3.isEmpty();
 }
 
 Cell & TripleHolder::getCell1()const
@@ -23,19 +20,19 @@ Cell & TripleHolder::getCell3()const
 	return cell3;
 }
 
-int TripleHolder::getNbEmptyCells()
+int TripleHolder::getNbEmptyCells() const
 {
-	return nbEmptyCells;
+	return cell1.isEmpty() + cell2.isEmpty() + cell3.isEmpty();
 }
 
 Cell & TripleHolder::getEmptyCell()
 {
-	return emptyCell;
+	return (cell1.isEmpty()) ? cell1 : ((cell2.isEmpty()) ? cell2 : cell3);
 }
 
 int TripleHolder::getSumCells()
 {
-	return sumCells;
+	return (char)cell1 * (int)!(cell1.isEmpty()) + (char)cell2* (int)!(cell2.isEmpty()) + (char)cell3 * (int)!(cell3.isEmpty());
 }
 
 set <unsigned char> TripleHolder::flagValues(ValueEliminator valueEliminator)
@@ -60,4 +57,13 @@ bool TripleHolder::isValuePresent(const unsigned char ivalue)
 	ValueEliminator valueEliminator1;
 	set <unsigned char> flagValues = this->flagValues(valueEliminator1);
 	return flagValues.find(ivalue) == flagValues.end();
+}
+
+TripleHolder & TripleHolder::operator = (TripleHolder const tripleHolder)
+{
+	cell1 = tripleHolder.cell1;
+	cell2 = tripleHolder.cell2;
+	cell3 = tripleHolder.cell3;
+
+	return *this;
 }

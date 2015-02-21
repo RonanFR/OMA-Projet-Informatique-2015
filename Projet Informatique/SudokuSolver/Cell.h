@@ -11,8 +11,8 @@ class SUDOKUSOLVER_API Cell{
 public:
 	Cell();
 	Cell(unsigned char value);
-	bool isEmpty();
-	Cell & operator =(unsigned char iValue);
+	bool isEmpty() const;
+	Cell & operator =(unsigned char const iValue);
 	operator unsigned char() const;
 	bool operator ==(unsigned char iValue) const;
 private:

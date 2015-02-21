@@ -13,5 +13,6 @@ class SUDOKUSOLVER_API Row :public NineHolder
 public:
 	Row(RowHolder rowHolder1, RowHolder rowHolder2, RowHolder rowHolder3);
 	~Row();
+	Row & Row::operator =(Row const & row);
 };
 

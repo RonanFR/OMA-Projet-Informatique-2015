@@ -20,21 +20,24 @@ public:
 		Region E, Region SO, Region S, Region SE);
 	void Accept(IVisitor & visitor);
 	void dispGrid();
+	void Solve();
 
-	RegionHolder getN();
-	RegionHolder getS();
-	RegionHolder getE();
-	RegionHolder getO();
-	RegionHolder getNE();
-	RegionHolder getNO();
-	RegionHolder getSE();
-	RegionHolder getSO();
-	RegionHolder getC();
+	RegionHolder getN() ;
+	RegionHolder getS() ;
+	RegionHolder getE() ;
+	RegionHolder getO() ;
+	RegionHolder getNE() ;
+	RegionHolder getNO() ;
+	RegionHolder getSE() ;
+	RegionHolder getSO() ;
+	RegionHolder getC() ;
 
-	Column getColumn(const int j);
-	Row getRow(const int i);
+	Column getColumn(const int j) const;
+	Row getRow(const int i) const;
 	RegionHolder getRegion(const int i, const int j);
 	bool isFull();
+	bool isConsistent() const;
+	Grid & operator =(Grid const & iogrid);
 
 private:
 	Region N;

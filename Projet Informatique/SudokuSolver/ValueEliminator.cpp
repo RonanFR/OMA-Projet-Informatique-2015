@@ -16,7 +16,7 @@ ValueEliminator::~ValueEliminator()
 
 void ValueEliminator::flag(unsigned char iValue)
 {
-	if ((int)iValue >= 49 && (int)iValue <= 57)
+	if ((int)iValue >= 49 && (int)iValue <= 57 && !tabEliminator[(int)iValue - 49])
 	{
 		tabEliminator[(int)iValue - 49] = true;
 		--nbAvailableValues;

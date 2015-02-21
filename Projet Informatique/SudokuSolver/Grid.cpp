@@ -2,6 +2,8 @@
 # include <stdexcept>
 # include<iostream>
 # include <math.h>
+# include "GridSolver.h"
+# include "OnlySquareVisitor.h"
 
 
 Grid::Grid(Region NO, Region N, Region NE, Region O, Region C, 
@@ -41,25 +43,25 @@ RegionHolder  Grid::getN()
 	return RegionHolder(N);
 }
 
-RegionHolder  Grid::getS()
+RegionHolder  Grid::getS() 
 {
 	
 	return RegionHolder(S);
 }
 
-RegionHolder  Grid::getE()
+RegionHolder  Grid::getE() 
 {
 	
 	return RegionHolder(E);
 }
 
-RegionHolder  Grid::getO()
+RegionHolder  Grid::getO() 
 {
 	
 	return RegionHolder(O);
 }
 
-RegionHolder  Grid::getC()
+RegionHolder  Grid::getC() 
 {
 	
 	
@@ -84,7 +86,7 @@ RegionHolder  Grid::getSE()
 	return RegionHolder(SE);
 }
 
-RegionHolder  Grid::getSO()
+RegionHolder  Grid::getSO() 
 {
 	
 	return RegionHolder(SO);
@@ -95,7 +97,7 @@ RegionHolder  Grid::getSO()
 //	visitor.Visit(*this);
 //}
 
-Column Grid::getColumn(const int j)
+Column Grid::getColumn(const int j) const
 {
 	switch (j)
 	{
@@ -109,7 +111,6 @@ Column Grid::getColumn(const int j)
 		return column3;
 	}
 	case 4:{
-		Column column(this->getN().LeftColumn(), this->getC().LeftColumn(), this->getS().LeftColumn());
 		return column4;
 	}
 	case 5:{
@@ -130,7 +131,7 @@ Column Grid::getColumn(const int j)
 	}
 }
 
-Row Grid::getRow(int i)
+Row Grid::getRow(int i) const
 {
 	switch (i)
 	{
@@ -205,6 +206,101 @@ RegionHolder  Grid::getRegion(const int i, const int j)
 		return this->getSE();
 	}
 	}
+}
+
+bool Grid::isConsistent() const
+{
+	return row1.isConsistent() && row2.isConsistent() && row3.isConsistent() && row4.isConsistent() && row5.isConsistent()
+		&& row6.isConsistent() && row7.isConsistent() && row8.isConsistent() && row9.isConsistent()
+		&& column1.isConsistent() && column2.isConsistent() && column3.isConsistent() && column4.isConsistent() && column5.isConsistent() 
+		&& column6.isConsistent() && column7.isConsistent() && column8.isConsistent() && column9.isConsistent()
+		&& N.isConsistent() && NE.isConsistent() && NO.isConsistent() && O.isConsistent() && E.isConsistent()
+		&& C.isConsistent() && SO.isConsistent() && SE.isConsistent() && S.isConsistent();
+}
+
+void Grid::Solve()
+{
+	GridSolver gridsolver;
+	gridsolver.solve(*this);
+
+	if (this->isFull() && this->isConsistent())
+	{
+		return;
+	}
+	else if (!this->isConsistent())
+	{
+		throw logic_error("Grid not consistent");
+	}
+	else
+	{
+		OnlySquareVisitor onlySquareVisitor;
+		for (int i = 1; i <= 9; i++)
+		{
+			for (int j = 1; j <= 9; j++)
+			{
+				if ((this->getRow(i)).get(j).isEmpty()) // Test all cells that are empty with all possible values
+				{
+					set<unsigned char> possibleValues = onlySquareVisitor.findPossibleValues(*this, i, j); // find possible assumptions
+					set<unsigned char>::iterator it = possibleValues.begin();
+					while (it != possibleValues.end()) // test all possible assumptions
+					{
+						try
+						{
+							Grid copyGrid = Grid(this->NO, this->N, this->NE, this->O, this->C,
+								this->E, this->SO, this->S, this->SE);
+							copyGrid.getRow(i).get(j) = *it; // make an assumption
+							copyGrid.Solve();
+							*this = copyGrid;
+							return;
+						}
+						catch (logic_error & le) // if the assumption led to some error, we need to look for other assumptions
+						{
+							int test = 0;
+						}
+						it++;
+					}
+					throw logic_error("Grid not consistent"); // if all values tested failed, throw an exception
+				}
+			}
+		}
+	}
+}
+
+
+
+Grid & Grid::operator = (Grid const & iogrid)
+{
+	C = iogrid.C;
+	O = iogrid.O;
+	E = iogrid.E;
+	N = iogrid.N;
+	NO = iogrid.NO;
+	NE = iogrid.NE;
+	S = iogrid.S;
+	SO = iogrid.SO;
+	SE = iogrid.SE;
+
+	row1 = iogrid.row1;
+	row2 = iogrid.row2;
+	row3 = iogrid.row3;
+	row4 = iogrid.row4;
+	row4 = iogrid.row5;
+	row4 = iogrid.row6;
+	row4 = iogrid.row7;
+	row4 = iogrid.row8;
+	row4 = iogrid.row9;
+
+	column1 = iogrid.column1;
+	column2 = iogrid.column2;
+	column3 = iogrid.column3;
+	column4 = iogrid.column4;
+	column5 = iogrid.column5;
+	column6 = iogrid.column6;
+	column7 = iogrid.column7;
+	column8 = iogrid.column8;
+	column9 = iogrid.column9;
+
+	return *this;
 }
 
 void Grid::dispGrid()
