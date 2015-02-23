@@ -11,7 +11,7 @@ class SUDOKUSOLVER_API ColumnHolder :public TripleHolder
 {
 public:
 	ColumnHolder(Cell & cell1, Cell & cell2, Cell & cell3);
-	Cell & T();
-	Cell & C();
-	Cell & B();
+	Cell & T() const;
+	Cell & C() const;
+	Cell & B() const;
 };

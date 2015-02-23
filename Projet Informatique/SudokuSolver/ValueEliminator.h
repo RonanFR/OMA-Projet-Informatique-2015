@@ -16,8 +16,8 @@ public:
 	ValueEliminator();
 	~ValueEliminator();
 	void flag(unsigned char iValue);
-	int availableValues();
-	set<unsigned char> availableValue();
+	int availableValues() const;
+	set<unsigned char> availableValue() const;
 private:
 	bool tabEliminator[9];
 	int nbAvailableValues;

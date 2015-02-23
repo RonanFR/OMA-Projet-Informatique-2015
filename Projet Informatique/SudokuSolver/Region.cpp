@@ -29,7 +29,7 @@ Region::Region(string chaine)
 	}
 }
 
-bool Region::isFull()
+bool Region::isFull() const
 {
 	return !(NO.isEmpty() || N.isEmpty() || NE.isEmpty() ||
 		O.isEmpty() || C.isEmpty() || E.isEmpty() ||

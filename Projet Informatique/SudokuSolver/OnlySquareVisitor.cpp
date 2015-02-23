@@ -13,6 +13,9 @@ OnlySquareVisitor::~OnlySquareVisitor()
 
 bool OnlySquareVisitor::Visit(Grid & ioGrid) const
 {
+	/** This function fills the cells that can take only one possible value by getting 
+	* the intersection of the missings values of the corresponding row, column and region.
+	*/
 	bool gridModified = false;
 	ValueEliminator valueEliminator;
 	set < unsigned char > missingValues;
@@ -35,7 +38,7 @@ bool OnlySquareVisitor::Visit(Grid & ioGrid) const
 			set_intersection(missingValues.begin(), missingValues.end(), missingValues2.begin(),
 				missingValues2.end(), inserter(possilbleValues, possilbleValues.begin()));
 
-			// Check Region
+			// Check region
 			missingValues2 = ioGrid.getRegion(*it,i).flagValues(valueEliminator);
 			set_intersection(possilbleValues.begin(), possilbleValues.end(), missingValues2.begin(),
 				missingValues2.end(), inserter(possilbleValues2, possilbleValues2.begin()));
@@ -63,6 +66,9 @@ bool OnlySquareVisitor::Visit(Grid & ioGrid) const
 
 set<unsigned char> OnlySquareVisitor::findPossibleValues(Grid & ioGrid, int i, int j) const
 {
+	/** This function returns all the values that the cell (i,j) of the grid could take
+	* by getting the intersection of the missing values of the column j, the row i and the cell's region.
+	*/
 	ValueEliminator valueEliminator;
 	set < unsigned char > missingValues;
 	set < unsigned char > missingValues2;
@@ -77,7 +83,7 @@ set<unsigned char> OnlySquareVisitor::findPossibleValues(Grid & ioGrid, int i, i
 	set_intersection(missingValues.begin(), missingValues.end(), missingValues2.begin(),
 		missingValues2.end(), inserter(possilbleValues, possilbleValues.begin()));
 
-	// Check Region of cell (i,j)
+	// Check region of cell (i,j)
 	missingValues2 = ioGrid.getRegion(i, j).flagValues(valueEliminator);
 	set_intersection(possilbleValues.begin(), possilbleValues.end(), missingValues2.begin(),
 		missingValues2.end(), inserter(possilbleValues2, possilbleValues2.begin()));

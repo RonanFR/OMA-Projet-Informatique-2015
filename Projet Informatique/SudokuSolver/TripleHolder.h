@@ -17,11 +17,11 @@ public:
 	Cell & getCell3()const;
 
 	int getNbEmptyCells() const;
-	Cell & getEmptyCell();
-	int getSumCells();
+	Cell & getEmptyCell() const;
+	int getSumCells() const;
 
-	set <unsigned char> flagValues(ValueEliminator ValueEliminator);
-	bool isValuePresent(const unsigned char ivalue);
+	set <unsigned char> flagValues(ValueEliminator ValueEliminator) const;
+	bool isValuePresent(const unsigned char ivalue) const;
 	TripleHolder & operator =(TripleHolder const tripleHolder);
 
 protected:

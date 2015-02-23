@@ -92,11 +92,6 @@ RegionHolder  Grid::getSO()
 	return RegionHolder(SO);
 }
 
-//void Grid::Accept(IVisitor & visitor)
-//{
-//	visitor.Visit(*this);
-//}
-
 Column Grid::getColumn(const int j) const
 {
 	switch (j)
@@ -220,6 +215,9 @@ bool Grid::isConsistent() const
 
 void Grid::Solve()
 {
+	/** This function solves any solvable Sodoku grid using Gridsolver and the backtracking method.
+	* If the Sodoku grid is not solvable this function throws a logic error exception.
+	*/
 	GridSolver gridsolver;
 	gridsolver.solve(*this);
 
@@ -255,7 +253,6 @@ void Grid::Solve()
 						}
 						catch (logic_error & le) // if the assumption led to some error, we need to look for other assumptions
 						{
-							int test = 0;
 						}
 						it++;
 					}
@@ -305,60 +302,56 @@ Grid & Grid::operator = (Grid const & iogrid)
 
 void Grid::dispGrid()
 {
-	cout << "  ------------------------------------" << endl;
+	/** This function displays an easy-to-read Sodoku grid.
+	*/
+	cout << "  -----------------------" << endl;
 
 	// 1st row
-	cout << " | " << NO.getNO() << " | " << NO.getN() << " | " << NO.getNE() << " | ";
-	cout  << N.getNO() << " | " << N.getN() << " | " << N.getNE() << " | ";
-	cout  << NE.getNO() << " | " << NE.getN() << " | " << NE.getNE() << " | " << endl;
-	cout << "  ------------------------------------" << endl;
+	cout << " | " << NO.getNO() << " " << NO.getN() << " " << NO.getNE() << " | ";
+	cout << N.getNO() << " " << N.getN() << " " << N.getNE() << " | ";
+	cout << NE.getNO() << " " << NE.getN() << " " << NE.getNE() << " | " << endl;
 
 	// 2nd row
-	cout << " | " << NO.getO() << " | " << NO.getC() << " | " << NO.getE() << " | ";
-	cout  << N.getO() << " | " << N.getC() << " | " << N.getE() << " | ";
-	cout  << NE.getO() << " | " << NE.getC() << " | " << NE.getE() << " | " << endl;
-	cout << "  ------------------------------------" << endl;
+	cout << " | " << NO.getO() << " " << NO.getC() << " " << NO.getE() << " | ";
+	cout << N.getO() << " " << N.getC() << " " << N.getE() << " | ";
+	cout << NE.getO() << " " << NE.getC() << " " << NE.getE() << " | " << endl;
 
 	// 3rd row
-	cout << " | " << NO.getSO() << " | " << NO.getS() << " | " << NO.getSE() << " | ";
-	cout  << N.getSO() << " | " << N.getS() << " | " << N.getSE() << " | ";
-	cout  << NE.getSO() << " | " << NE.getS() << " | " << NE.getSE() << " | " << endl;
-	cout << "  ------------------------------------" << endl;
+	cout << " | " << NO.getSO() << " " << NO.getS() << " " << NO.getSE() << " | ";
+	cout << N.getSO() << " " << N.getS() << " " << N.getSE() << " | ";
+	cout << NE.getSO() << " " << NE.getS() << " " << NE.getSE() << " | " << endl;
+	cout << "  -----------------------" << endl;
 
 	// 4th row
-	cout << " | " << O.getNO() << " | " << O.getN() << " | " << O.getNE() << " | ";
-	cout  << C.getNO() << " | " << C.getN() << " | " << C.getNE() << " | ";
-	cout  << E.getNO() << " | " << E.getN() << " | " << E.getNE() << " | " << endl;
-	cout << "  ------------------------------------" << endl;
+	cout << " | " << O.getNO() << " " << O.getN() << " " << O.getNE() << " | ";
+	cout << C.getNO() << " " << C.getN() << " " << C.getNE() << " | ";
+	cout << E.getNO() << " " << E.getN() << " " << E.getNE() << " | " << endl;
 
 	// 5th row
-	cout << " | " << O.getO() << " | " << O.getC() << " | " << O.getE() << " | ";
-	cout  << C.getO() << " | " << C.getC() << " | " << C.getE() << " | ";
-	cout  << E.getO() << " | " << E.getC() << " | " << E.getE() << " | " << endl;
-	cout << "  ------------------------------------" << endl;
+	cout << " | " << O.getO() << " " << O.getC() << " " << O.getE() << " | ";
+	cout << C.getO() << " " << C.getC() << " " << C.getE() << " | ";
+	cout << E.getO() << " " << E.getC() << " " << E.getE() << " | " << endl;
 
 	// 6th row
-	cout << " | " << O.getSO() << " | " << O.getS() << " | " << O.getSE() << " | ";
-	cout  << C.getSO() << " | " << C.getS() << " | " << C.getSE() << " | ";
-	cout  << E.getSO() << " | " << E.getS() << " | " << E.getSE() << " | " << endl;
-	cout << "  ------------------------------------" << endl;
+	cout << " | " << O.getSO() << " " << O.getS() << " " << O.getSE() << " | ";
+	cout << C.getSO() << " " << C.getS() << " " << C.getSE() << " | ";
+	cout << E.getSO() << " " << E.getS() << " " << E.getSE() << " | " << endl;
+	cout << "  -----------------------" << endl;
 
 	// 7th row
-	cout << " | " << SO.getNO() << " | " << SO.getN() << " | " << SO.getNE() << " | ";
-	cout  << S.getNO() << " | " << S.getN() << " | " << S.getNE() << " | ";
-	cout  << SE.getNO() << " | " << SE.getN() << " | " << SE.getNE() << " | " << endl;
-	cout << "  ------------------------------------" << endl;
+	cout << " | " << SO.getNO() << " " << SO.getN() << " " << SO.getNE() << " | ";
+	cout << S.getNO() << " " << S.getN() << " " << S.getNE() << " | ";
+	cout << SE.getNO() << " " << SE.getN() << " " << SE.getNE() << " | " << endl;
 
 	// 8th row
-	cout << " | " << SO.getO() << " | " << SO.getC() << " | " << SO.getE() << " | ";
-	cout << S.getO() << " | " << S.getC() << " | " << S.getE() << " | ";
-	cout  << SE.getO() << " | " << SE.getC() << " | " << SE.getE() << " | " << endl;
-	cout << "  ------------------------------------" << endl;
+	cout << " | " << SO.getO() << " " << SO.getC() << " " << SO.getE() << " | ";
+	cout << S.getO() << " " << S.getC() << " " << S.getE() << " | ";
+	cout << SE.getO() << " " << SE.getC() << " " << SE.getE() << " | " << endl;
 
 	// 9th row
-	cout << " | " << SO.getSO() << " | " << SO.getS() << " | " << SO.getSE() << " | ";
-	cout << S.getSO() << " | " << S.getS() << " | " << S.getSE() << " | ";
-	cout << SE.getSO() << " | " << SE.getS() << " | " << SE.getSE() << " | " << endl;
-	cout << "  ------------------------------------" << endl;
+	cout << " | " << SO.getSO() << " " << SO.getS() << " " << SO.getSE() << " | ";
+	cout << S.getSO() << " " << S.getS() << " " << S.getSE() << " | ";
+	cout << SE.getSO() << " " << SE.getS() << " " << SE.getSE() << " | " << endl;
+	cout << "  -----------------------" << endl;
 	
 }

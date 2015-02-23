@@ -101,7 +101,7 @@ ColumnHolder RegionHolder::MiddleColumn()const
 
 }
 
-set <unsigned char>  RegionHolder::flagValues(ValueEliminator valueEliminator)
+set <unsigned char>  RegionHolder::flagValues(ValueEliminator valueEliminator) const
 {
 	valueEliminator.flag(this->getNO());
 	valueEliminator.flag(this->getN());
@@ -126,7 +126,7 @@ set <unsigned char>  RegionHolder::flagValues(ValueEliminator valueEliminator)
 	}
 }
 
-bool RegionHolder::isValuePresent(const unsigned char ivalue)
+bool RegionHolder::isValuePresent(const unsigned char ivalue) const
 {
 	ValueEliminator valueEliminator1;
 	set <unsigned char> flagValues = this->flagValues(valueEliminator1);

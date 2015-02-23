@@ -11,7 +11,7 @@ NineHolder::~NineHolder()
 {
 }
 
-bool NineHolder::isValuePresent(const unsigned char ivalue)
+bool NineHolder::isValuePresent(const unsigned char ivalue) const
 {
 	return tripleHolder1.isValuePresent(ivalue) || tripleHolder2.isValuePresent(ivalue) || tripleHolder3.isValuePresent(ivalue);
 }
@@ -41,7 +41,7 @@ Cell & NineHolder::get(int i) const
 	}
 }
 
-set < int > NineHolder::getEmptyCellsIndices()
+set < int > NineHolder::getEmptyCellsIndices() const
 {
 	set < int > emptyCellsIndices;
 	for (int i = 1; i <= 9; i++)
@@ -54,7 +54,7 @@ set < int > NineHolder::getEmptyCellsIndices()
 	return emptyCellsIndices;
 }
 
-set <unsigned char>  NineHolder::flagValues(ValueEliminator valueEliminator)
+set <unsigned char>  NineHolder::flagValues(ValueEliminator valueEliminator) const
 {
 	for (int i = 1; i <= 9; i++)
 	{

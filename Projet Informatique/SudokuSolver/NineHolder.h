@@ -12,10 +12,10 @@ class SUDOKUSOLVER_API NineHolder
 public:
 	NineHolder(TripleHolder tripleHolder1, TripleHolder tripleHolder2, TripleHolder tripleHolder3);
 	~NineHolder();
-	bool isValuePresent(const unsigned char ivalue);
+	bool isValuePresent(const unsigned char ivalue) const;
 	Cell & get(int i) const;
-	set < int > getEmptyCellsIndices();
-	set <unsigned char>  flagValues(ValueEliminator valueEliminator);
+	set < int > getEmptyCellsIndices() const;
+	set <unsigned char>  flagValues(ValueEliminator valueEliminator) const;
 	int getNbEmptyCells() const;
 	bool isConsistent() const;
 protected:

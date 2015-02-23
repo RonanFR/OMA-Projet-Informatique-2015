@@ -25,17 +25,17 @@ int TripleHolder::getNbEmptyCells() const
 	return cell1.isEmpty() + cell2.isEmpty() + cell3.isEmpty();
 }
 
-Cell & TripleHolder::getEmptyCell()
+Cell & TripleHolder::getEmptyCell() const
 {
 	return (cell1.isEmpty()) ? cell1 : ((cell2.isEmpty()) ? cell2 : cell3);
 }
 
-int TripleHolder::getSumCells()
+int TripleHolder::getSumCells() const
 {
 	return (char)cell1 * (int)!(cell1.isEmpty()) + (char)cell2* (int)!(cell2.isEmpty()) + (char)cell3 * (int)!(cell3.isEmpty());
 }
 
-set <unsigned char> TripleHolder::flagValues(ValueEliminator valueEliminator)
+set <unsigned char> TripleHolder::flagValues(ValueEliminator valueEliminator) const
 {
 	valueEliminator.flag(this->getCell1());
 	valueEliminator.flag(this->getCell2());
@@ -52,7 +52,7 @@ set <unsigned char> TripleHolder::flagValues(ValueEliminator valueEliminator)
 	}
 }
 
-bool TripleHolder::isValuePresent(const unsigned char ivalue)
+bool TripleHolder::isValuePresent(const unsigned char ivalue) const
 {
 	ValueEliminator valueEliminator1;
 	set <unsigned char> flagValues = this->flagValues(valueEliminator1);

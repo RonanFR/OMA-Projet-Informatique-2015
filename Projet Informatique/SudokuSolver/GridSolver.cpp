@@ -18,6 +18,9 @@ GridSolver::~GridSolver()
 
 bool GridSolver::solveOnlyOneChoice(Grid & iogrid) const
 {
+	/** This method recursively applies OnlyOneChoice strategy until no changes occur
+	* in the grid or the grid is not consistent.
+	*/
 	bool hasGridChanged = true;
 	bool isGridModified = false;
 	bool bool1;
@@ -51,6 +54,9 @@ bool GridSolver::solveOnlyOneChoice(Grid & iogrid) const
 
 bool GridSolver::solveOnlySquare(Grid & iogrid) const
 {
+	/** This method recursively applies OnlySquare strategy until no changes occur
+	* in the grid or the grid is not consistent.
+	*/
 	bool hasGridChanged = true;
 	bool isGridModified = false;
 	OnlySquareVisitor onlySquareVisitor;
@@ -68,6 +74,9 @@ bool GridSolver::solveOnlySquare(Grid & iogrid) const
 
 bool GridSolver::solveTwoOutOfThree(Grid & iogrid) const
 {
+	/** This method recursively applies TwoOutOfThree strategy until no changes occur 
+	* in the grid or the grid is not consistent.
+	*/
 	bool hasGridChanged = true;
 	bool isGridModified = false;
 	bool bool1;
@@ -94,6 +103,9 @@ bool GridSolver::solveTwoOutOfThree(Grid & iogrid) const
 
 void GridSolver::solve(Grid & iogrid) const
 {
+	/** This method recursively applies solveOnlyOneChoice, solveOnlySquare and solveTwoOutOfThree 
+	* until no changes occur in the grid or the grid is not consistent.
+	*/
 	bool hasGridChanged = true;
 	bool bool1;
 	bool bool2;

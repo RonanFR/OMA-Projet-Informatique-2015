@@ -11,7 +11,7 @@ class SUDOKUSOLVER_API RowHolder:public TripleHolder
 {
 public:
 	RowHolder(Cell & cell1, Cell & cell2, Cell & cell3);
-	Cell & G();
-	Cell & C();
-	Cell & D();
+	Cell & G() const;
+	Cell & C() const;
+	Cell & D() const;
 };

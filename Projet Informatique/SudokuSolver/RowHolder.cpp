@@ -6,17 +6,17 @@ RowHolder::RowHolder(Cell & cell1, Cell & cell2, Cell & cell3)
 
 }
 
-Cell & RowHolder :: G()
+Cell & RowHolder::G() const
 {
 	return cell1;
 }
 
-Cell & RowHolder::C()
+Cell & RowHolder::C() const
 {
 	return cell2;
 }
 
-Cell & RowHolder::D()
+Cell & RowHolder::D() const
 {
 	return cell3;
 }

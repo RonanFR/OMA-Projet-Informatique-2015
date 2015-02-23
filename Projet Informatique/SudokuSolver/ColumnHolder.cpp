@@ -6,17 +6,17 @@ ColumnHolder::ColumnHolder(Cell & cell1, Cell & cell2, Cell & cell3)
 
 }
 
-Cell & ColumnHolder::T()
+Cell & ColumnHolder::T() const
 {
 	return cell1;
 }
 
-Cell & ColumnHolder::C()
+Cell & ColumnHolder::C() const
 {
 	return cell2;
 }
 
-Cell & ColumnHolder::B()
+Cell & ColumnHolder::B() const
 {
 	return cell3;
 }

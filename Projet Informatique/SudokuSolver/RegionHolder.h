@@ -33,8 +33,8 @@ public:
 	ColumnHolder MiddleColumn()const;
 	ColumnHolder RightColumn()const;
 
-	set <unsigned char> flagValues(ValueEliminator ValueEliminator);
-	bool isValuePresent(const unsigned char ivalue);
+	set <unsigned char> flagValues(ValueEliminator ValueEliminator) const;
+	bool isValuePresent(const unsigned char ivalue) const;
 	bool isFull() const;
 
 private:

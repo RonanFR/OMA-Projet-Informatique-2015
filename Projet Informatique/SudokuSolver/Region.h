@@ -15,7 +15,7 @@ class SUDOKUSOLVER_API  Region
 public:
 	Region();
 	Region(string chaine);
-	bool isFull();
+	bool isFull() const;
 	bool isConsistent() const;
 	int getNbEmptyCells() const;
 	Region & operator =(Region const & region);

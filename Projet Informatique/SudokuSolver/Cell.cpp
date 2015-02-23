@@ -12,7 +12,7 @@ Cell::Cell(unsigned char input)
 {
 	if ((input > '9' || input< '1') && (input != '-'))
 	{
-		throw invalid_argument("la cellule doit contenir un chiffre entre 1 et 9");
+		throw invalid_argument("La cellule doit contenir un chiffre entre 1 et 9");
 	}
 }
 

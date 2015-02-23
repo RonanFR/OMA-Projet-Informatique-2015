@@ -13,5 +13,8 @@ public:
 	TwoOutOfThreeRowVisitor();
 	~TwoOutOfThreeRowVisitor();
 	bool Visit(Grid & iogrid) const;
+private:
+	bool VisitOneOutOfThree(Grid & iogrid, unsigned char value, int nThreeColumns) const;
+	bool VisitTwoOutOfThree(Grid & iogrid, unsigned char value, int nThreeRows) const;
 };
 
