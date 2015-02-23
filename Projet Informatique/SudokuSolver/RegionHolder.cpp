@@ -139,5 +139,3 @@ bool RegionHolder::isFull() const
 		&& !this->getNO().isEmpty() && !this->getNE().isEmpty() && !this->getSO().isEmpty() && !this->getSE().isEmpty() && !this->getC().isEmpty();
 }
 
-
-

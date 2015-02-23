@@ -25,8 +25,8 @@ public:
 	TripleHolder & operator =(TripleHolder const tripleHolder);
 
 protected:
-	Cell & cell1 ;
-	Cell & cell2 ;
-	Cell & cell3 ;
+	Cell & cell1;
+	Cell & cell2;
+	Cell & cell3;
 
 };

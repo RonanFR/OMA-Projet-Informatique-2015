@@ -157,7 +157,7 @@ int main(){
 	Region SE("8-59--2--");
 
 	// Third grid : "difficult" grid (long run time) found in the article :
-	// "Limiting Backtracking in Fast Sudoku Solvers", Ileana - Diana V.D.Nicolae*, Anca - Iuliana P.M.Nicolae**
+	// "Limiting Backtracking in Fast Sudoku Solvers", Ileana - Diana V.D.Nicolae, Anca - Iuliana P.M.Nicolae
 	/*Region NO("--------2");
 	Region N("------3--");
 	Region NE("-12--34--");
